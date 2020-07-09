@@ -4,4 +4,6 @@ RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
     yum update -y && \
     yum install -y inotify-tools jq
 
-ENTRYPOINT /bin/sh
+COPY s3-uploader.sh s3-uploader.sh
+
+ENTRYPOINT ["./s3-uploader.sh"]
